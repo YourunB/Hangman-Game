@@ -269,6 +269,10 @@ function checkResult() {
 }
 
 function resetGame() {
+  const prevQuestion = questionNumber;
+  do {
+    questionNumber = selectQuestion(0, arrQuestions.length - 1);
+  } while(prevQuestion === questionNumber);
   const btns = gameSectionKeyboard.children;
   for (let i = 0; i < btns.length; i += 1) {
     btns[i].disabled = false;
@@ -283,7 +287,6 @@ function resetGame() {
     if (i > 0)
       gallowsSectionImg[i].classList.add("gallows-section__img_unvisible");
   }
-  questionNumber = selectQuestion(0, arrQuestions.length - 1);
   countMove = 0;
   gameSectionGuessesMove.textContent = `${countMove} / 6`;
   setTimeout(() => {
