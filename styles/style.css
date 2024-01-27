@@ -318,6 +318,7 @@ body {
 }
 
 .game-section__keyboard__btn:disabled {
+  cursor: default;
   background: rgba(255, 255, 255, 0.2);
   animation: press-btn 0.5s forwards;
 }
